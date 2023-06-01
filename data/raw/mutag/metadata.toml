@@ -1,0 +1,2 @@
+url = 'https://storage.googleapis.com/dm-educational/assets/graph-nets/jraph_datasets/mutag.pickle'
+filename = 'mutag.pickle'
