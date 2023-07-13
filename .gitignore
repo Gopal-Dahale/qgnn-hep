@@ -1,7 +1,12 @@
 # Data
 data/downloaded
 data/processed
-data/interim
+data/interimd
+data/raw
+
+# VSCode
+.vscode
+qgnn_proposal.pdf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -30,7 +35,6 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-.vscode
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -171,5 +175,3 @@ wandb
 */training/logs
 logs
 
-# notebooks
-notebooks
