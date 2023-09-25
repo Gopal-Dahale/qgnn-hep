@@ -383,12 +383,19 @@ def train_and_evaluate(config: ml_collections.ConfigDict, workdir: str, wandb_lo
                     wandb.log(computed_eval_metrics, step=step)
 
         # Checkpoint model, if required.
-        if step % train_hparams.checkpoint_every_steps == 0 or is_last_step:
-            with report_progress.timed("checkpoint"):
-                ckpt.save(state)
+        # if step % train_hparams.checkpoint_every_steps == 0 or is_last_step:
+        #     with report_progress.timed("checkpoint"):
+        #         ckpt.save(state)
+        #         if wandb_logging:
+        #             artifact = wandb.Artifact(
+        #                 f'{wandb.run.name}-checkpoint', type='dataset'
+        #             )
+        #             artifact.add_dir(checkpoint_dir)
+        #             wandb.log_artifact(artifact, aliases=["latest", f"step_{step}"])
 
     # Finish wandb
     if wandb_logging:
+        wandb.save(os.path.join(checkpoint_dir, "c*"))
         wandb.finish()
 
     return state

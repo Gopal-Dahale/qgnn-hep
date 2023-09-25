@@ -74,7 +74,7 @@ class Builder(tfds.core.GeneratorBasedBuilder):
         x = [mol["input_graph"] for mol in mutag_ds]
         y = [mol["target"][0] for mol in mutag_ds]
 
-        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=test_size, random_state=42)
+        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=test_size, random_state=42, stratify=y)
 
         # Returns the Dict[split names, Iterator[Key, Example]]
         return {
